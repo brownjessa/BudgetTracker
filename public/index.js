@@ -67,3 +67,23 @@ function populateChart() {
     },
   });
 }
+function sendTransaction(isAdding) {
+  let nameEl = document.querySelector("#t-name");
+  let amountEl = document.querySelector("#t-amount");
+  let errorEl = document.querySelector(".form .error");
+  if (nameEl.value === "" || amountEl.value === "") {
+    errorEl.textContent = "Missing Information";
+    return;
+  }
+  else {
+    errorEl.textContent = "";
+  }
+  let transaction = {
+    name: nameEl.value,
+    value: amountEl.value,
+    date: new Date().toISOString()
+  };
+  if (!isAdding) {
+    transaction.value *= -1;
+  }
+  transactions.unshift(transaction);
