@@ -1,3 +1,15 @@
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Marcie!1218"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 const indexedDB =
   window.indexedDB ||
   window.mozIndexedDB ||
@@ -51,3 +63,15 @@ function checkDatabase() {
   };
 }
 window.addEventListener("online", checkDatabase);
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+
+} else {
+  connection =mysql.createConnection({
+    host: 'localhost'
+    user: 'root'
+    password: 'Marcie!1218'
+    database: 'Budget'
+  });
+};
