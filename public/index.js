@@ -87,3 +87,26 @@ function sendTransaction(isAdding) {
     transaction.value *= -1;
   }
   transactions.unshift(transaction);
+  populateChart();
+  populateTable();
+  populateTotal();
+  fetch("/api/transaction", {
+    method: "POST",
+    body: JSON.stringify(transaction),
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {    
+    return response.json();
+  })
+  .then(data => {
+    if (data.errors) {
+      errorEl.textContent = "Missing Information";
+    }
+    else {
+      nameEl.value = "";
+      amountEl.value = "";
+    }
+  })
