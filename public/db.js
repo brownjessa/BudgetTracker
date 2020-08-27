@@ -1,4 +1,5 @@
 var mysql = require("mysql");
+const { connection } = require("mongoose");
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -71,6 +72,9 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     user: "root",
     password: "Marcie!1218",
-    database: "Budget",
+    database: "budget",
   });
 }
+
+connection.connect();
+module.exports = connection;
