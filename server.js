@@ -5,7 +5,7 @@ const compression = require("compression");
 
 var PORT = process.env.PORT || 8080;
 
-var db = require("./models");
+var db = require("models");
 const app = express();
 
 app.use(logger("dev"));
