@@ -1,12 +1,12 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Marcie!1218"
+  password: "Marcie!1218",
 });
 
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 });
@@ -66,12 +66,11 @@ window.addEventListener("online", checkDatabase);
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-
 } else {
-  connection =mysql.createConnection({
-    host: 'localhost'
-    user: 'root'
-    password: 'Marcie!1218'
-    database: 'Budget'
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Marcie!1218",
+    database: "Budget",
   });
-};
+}
